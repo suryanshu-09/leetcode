@@ -1,20 +1,15 @@
 class Solution {
 public:
     int numIdenticalPairs(vector<int>& nums) {
-      vector<int>::iterator i;
-      vector<int>::iterator j;
       int count = 0;
-      i = nums.begin();
-      while(i != nums.end()){
-        j = i+1;
-        while(j != nums.end()){
-          if(*i == *j){
-            count++;
-          }
-          j++;
-        }
-        i++;
+  for(int i = 0; i < nums.size(); i++){
+    int subcount = 0;
+    for(int j = 0; j < i; j++){
+      if(nums[i] == nums[j])
+        subcount++;
     }
-    return count; 
+    count += subcount;
   }
+  return count;
+    }
 };
